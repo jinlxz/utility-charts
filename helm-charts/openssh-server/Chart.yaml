@@ -1,0 +1,5 @@
+apiVersion: v2
+name: openssh-server
+version: 1.0.0
+description: openssh-server chart.
+appVersion: 1.0.0

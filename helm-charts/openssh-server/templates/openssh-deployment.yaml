@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openssh-server
+  labels:
+    app: openssh-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openssh-server
+  template:
+    metadata:
+      labels:
+        app: openssh-server
+    spec:
+      containers:
+        - name: openssh-server
+          image: {{ .Values.image.url }}
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: 500m
+              memory: 2048Mi
+            requests:
+              cpu: 200m
+              memory: 256Mi
