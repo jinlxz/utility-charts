@@ -17,6 +17,12 @@ spec:
       containers:
         - name: openssh-server
           image: {{ .Values.image.url }}
+          command:
+            - /bin/bash
+          args:
+            - -c
+            - "/usr/sbin/sshd; cat > /dev/null"
+          tty: true
           ports:
             - containerPort: 80
           resources:
